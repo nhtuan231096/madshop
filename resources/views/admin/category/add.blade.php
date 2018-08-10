@@ -1,0 +1,50 @@
+@extends('layouts.admin')
+@section('main')
+	<div class="col-md-12">
+       <div class="panel panel-primary">
+            <div class="panel-heading">
+               Add Category
+            </div>
+            <div class="panel-body">
+                <form role="form">
+                    <div class="form-group">
+                        <label>Enter Name</label>
+                        <input class="form-control" type="text">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Slug</label>
+                        <input class="form-control" type="text">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Select Parent</label>
+                        <select name="" class="form-control">
+                        	<option value=""></option>
+                        </select>
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Status</label>
+                        <input class="form-control" type="text">
+                        <p class="help-block">Help text here.</p>
+                    </div>
+                    <div class="form-group">
+                        <label>Chose Image</label>
+                        <div class="">
+                            <div class="fileupload fileupload-new" data-provides="fileupload">
+                                <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;"><img src="{{asset('/public/admin')}}/img/demoUpload.jpg" alt="" /></div>
+                                <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                <div>
+                                    <span class="btn btn-file btn-info"><span class="fileupload-new">Select image</span><span class="fileupload-exists">Change</span><input type="file"></span>
+                                    <a href="#" class="btn btn-danger fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" class="center-block">Create</button>
+                </form>
+            </div>
+        </div>
+    </div>
+@stop()
