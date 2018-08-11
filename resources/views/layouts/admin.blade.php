@@ -10,6 +10,7 @@
     <link href="{{asset('/public/admin')}}/css/basic.css" rel="stylesheet" />
     <link href="{{asset('/public/admin')}}/css/custom.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="http://demo.expertphp.in/css/jquery.ui.autocomplete.css" rel="stylesheet">
 </head>
 <body>
     <div id="wrapper">
@@ -131,5 +132,8 @@
     <script src="{{asset('/public/admin')}}/js/jquery.metisMenu.js"></script>
     <script src="{{asset('/public/admin')}}/js/bootstrap-fileupload.js"></script>
     <script src="{{asset('/public/admin')}}/js/custom.js"></script>
+    
+    <script src="http://demo.expertphp.in/js/jquery.js"></script>
+    <script src="http://demo.expertphp.in/js/jquery-ui.min.js"></script>
 </body>
 </html>

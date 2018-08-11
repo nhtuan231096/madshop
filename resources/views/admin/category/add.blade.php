@@ -14,22 +14,17 @@
                     </div>
                     <div class="form-group">
                         <label>Slug</label>
-                        <input class="form-control" type="text">
-                        <p class="help-block">Help text here.</p>
+                        <input class="form-control" name="slug">
                     </div>
                     <div class="form-group">
                         <label>Select Parent</label>
-                        <select name="slug" class="form-control">
-                        	<option value=""></option>
-                        </select>
-                        <p class="help-block">Help text here.</p>
+                        {!! Form::text('search_text', null, array('placeholder' => 'Search Text','class' => 'form-control','id'=>'search_text')) !!}
                     </div>
                     <div class="form-group">
                         <label>Status</label>
                         <input class="form-control" name="status">
-                        <p class="help-block">Help text here.</p>
                     </div>
-                    {{-- <div class="form-group">
+                    <div class="form-group">
                         <label>Chose Image</label>
                         <div class="">
                             <div class="fileupload fileupload-new" data-provides="fileupload">
@@ -41,11 +36,32 @@
                                 </div>
                             </div>
                         </div>
-                    </div> --}}
+                    </div>
                     <input type="submit" class="btn btn-primary" class="center-block" value="Create">
                     <input type="hidden" name="_token" value="{{csrf_token()}}">
                 </form>
             </div>
         </div>
     </div>
+<!--     <script>
+   $(document).ready(function() {
+    src = "{{ route('searchajax') }}";
+     $("#search_text").autocomplete({
+        source: function(request, response) {
+            $.ajax({
+                url: src,
+                dataType: "json",
+                data: {
+                    term : request.term
+                },
+                success: function(data) {
+                    response(data);
+                   
+                }
+            });
+        },
+        minLength: 3,
+    });
+});
+</script> -->
 @stop()
