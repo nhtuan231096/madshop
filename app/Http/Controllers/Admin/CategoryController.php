@@ -28,5 +28,11 @@ class CategoryController extends Controller
        {
     	return view('admin.category.add');
     }
+    public function postadd(Request $req)
+    {
+    	$req->offsetUnset('_token');
+    	Category::create($req->all());
+    	return redirect()->route('category')->with('success',"Created Successfully");
+    }
 }
  ?>
