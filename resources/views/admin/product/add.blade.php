@@ -7,9 +7,7 @@
 		<h3 class="panel-title">Form add product</h3>
 	</div>
 	<div class="panel-body">
-		<form action="" method="POST" role="form">
-
-
+		<form action="" method="POST" role="form" enctype="multipart/form-data">
 				<div class="form-group">
 					<label for="">Name</label>
 					<input type="text" class="form-control" name="name" placeholder="Input field">
@@ -39,6 +37,10 @@
 						@endforeach
 					</select>
 				</div>
+				<div class="form-group">
+					<label for="">Image</label>
+					<input type="file" name="file_upload" placeholder="Insert image">
+				</div>
 
 				<div class="form-group">
 					<label for="">Price</label>
@@ -59,10 +61,11 @@
 						</div>
 					@endif
 				</div>
-				
+				<div class="form-group">
+					<label for="">Status</label>
+					<input type="text" name="status" placeholder="Insert status">
+				</div>
 				<input type="hidden" name="_token" value="{{csrf_token()}}">
-				
-
 				<button type="submit" class="btn btn-primary">Add</button>
 			</form>
 	</div>

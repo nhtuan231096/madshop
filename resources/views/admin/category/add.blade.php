@@ -6,19 +6,27 @@
                Add Category
             </div>
             <div class="panel-body">
-                <form role="form" action="" method="POST">
+                <form role="form" action="" method="POST" enctype="multipart/form-data">
                     <div class="form-group">
                         <label>Enter Name</label>
                         <input class="form-control" type="text" name="name">
                         <p class="help-block">Help text here.</p>
                     </div>
-                    <div class="form-group">
+                    <!-- <div class="form-group">
                         <label>Slug</label>
                         <input class="form-control" name="slug">
-                    </div>
-                    <div class="form-group">
+                    </div> -->
+                    <!-- div class="form-group">
                         <label>Select Parent</label>
                         {!! Form::text('search_text', null, array('placeholder' => 'Search Text','class' => 'form-control','id'=>'search_text')) !!}
+                    </div> -->
+                    <div class="form-group">
+                        <!-- <label>Parent</label>
+                        <select name="parent" class="form-control">
+                            @foreach($cat as $c)
+                            <option value="{{$c->id}}">{{$c->name}}</option>
+                            @endforeach
+                        </select> -->
                     </div>
                     <div class="form-group">
                         <label>Status</label>

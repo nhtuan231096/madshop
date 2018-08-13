@@ -26,17 +26,27 @@
 		}
 
 		public function created(Request $req){
-			$this->validate($req,[
-				'name'=>'required|min:6',
-				'description'=>'required',
-				'price'=>'required',
-				'sale_price'=>'required',
-				// 'category_id'=>'required'
-			],[
-				'required'=>':attribute must not be blank',
-				'min'=>':attribute at least 6 characters',
+			//upload file
+			// echo base_path('uploads'); die;
+			// dd($req->file_upload);
+			$img = '';
+			if ($req->hasFile('file_upload')) {
+				$file = $req->file_upload;
+				$file->move(base_path('uploads'), $file->getClientOriginalName());
+				$img =  $file->getClientOriginalName();
+			}
+			$req->merge(['image'=>$img]);
+			// $this->validate($req,[
+			// 	'name'=>'required|min:6',
+			// 	'description'=>'required',
+			// 	'price'=>'required',
+			// 	'sale_price'=>'required',
+			// 	// 'category_id'=>'required'
+			// ],[
+			// 	'required'=>':attribute must not be blank',
+			// 	'min'=>':attribute at least 6 characters',
 				// 'Digits'=>':attribute must enter the number'
-			]);
+			// ]);
 			$req->offsetUnset('_token');
 			Product::create($req->all());
 			return redirect()->route('list_product');

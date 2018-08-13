@@ -9,7 +9,11 @@
 	{
 		protected $table="products";
 		protected $fillable=[
-			'name','description','price','sale_price','category_id'
+			'name','description','image','price','sale_price','category_id'
 		];
+		public function cat()
+		{
+			return $this->hasOne('App\Models\Category','id','category_id');
+		}
 	}
  ?>

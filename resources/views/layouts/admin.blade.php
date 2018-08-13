@@ -3,14 +3,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Responsive Bootstrap Advance Admin Template</title>
+    <title>Madshop Admin</title>
     <link href="{{asset('/public/admin')}}/css/bootstrap.css" rel="stylesheet" />
     <link href="{{asset('/public/admin')}}/css/font-awesome.css" rel="stylesheet" />
     <link href="{{asset('/public/admin')}}/css/bootstrap-fileupload.min.css" rel="stylesheet" />
     <link href="{{asset('/public/admin')}}/css/basic.css" rel="stylesheet" />
     <link href="{{asset('/public/admin')}}/css/custom.css" rel="stylesheet" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <link href="http://demo.expertphp.in/css/jquery.ui.autocomplete.css" rel="stylesheet">
+    <!-- <link href="http://demo.expertphp.in/css/jquery.ui.autocomplete.css" rel="stylesheet"> -->
 </head>
 <body>
     <div id="wrapper">
@@ -27,6 +27,7 @@
 
             <div class="header-right">
 
+                <a href="/madshop" class="btn btn-info" title="Return Homepage" target="blank"><i class="fa fa-home fa-2x"></i></a>
                 <a href="message-task.html" class="btn btn-info" title="New Message"><b>30 </b><i class="fa fa-envelope-o fa-2x"></i></a>
                 <a href="message-task.html" class="btn btn-primary" title="New Task"><b>40 </b><i class="fa fa-bars fa-2x"></i></a>
                 <a href="logout.html" class="btn btn-danger" title="Logout"><i class="fa fa-exclamation-circle fa-2x"></i></a>
@@ -133,7 +134,7 @@
     <script src="{{asset('/public/admin')}}/js/bootstrap-fileupload.js"></script>
     <script src="{{asset('/public/admin')}}/js/custom.js"></script>
     
-    <script src="http://demo.expertphp.in/js/jquery.js"></script>
-    <script src="http://demo.expertphp.in/js/jquery-ui.min.js"></script>
+<!--     <script src="http://demo.expertphp.in/js/jquery.js"></script>
+    <script src="http://demo.expertphp.in/js/jquery-ui.min.js"></script> -->
 </body>
 </html>

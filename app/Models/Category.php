@@ -16,6 +16,10 @@ class Category extends Model
    protected $fillable = [
    		'name','slug','parent','status'
    ];
+   // public function products()
+   // {
+   // 		return $this->hasMany('App\Models\Product','category_id','id');
+   // }
 }
 
  ?>
