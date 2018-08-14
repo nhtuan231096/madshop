@@ -55,11 +55,11 @@
                         <div class="col-sm-12 text-left menu-1">
                             <ul>
                                 <li class="active"><a href="index.html">Home</a></li>
-                                <!-- <li class="has-dropdown"><a href="men.html">Men</a></li>
-                                <li><a href="women.html">Women</a></li> -->
-                                @foreach($cats as $cat)
-                                    <li><a href="">{{$cat->name}}</a></li>
-                                $endforeach
+                                <li class="has-dropdown"><a href="men.html">Men</a></li>
+                                <li><a href="women.html">Women</a></li>
+                                <!-- @foreach($cats as $cat)
+                                    <li><a href="{{route('shop',['id'=>$cat-id])}}">{{$cat->name}}</a></li>
+                                $endforeach -->
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                 <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
@@ -513,16 +513,6 @@ Copyright &copy;<script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-23581568-13');
-</script>
-
-    </body>
-
-<!-- Mirrored from colorlib.com/preview/theme/footwear/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 10 Aug 2018 06:59:20 GMT -->
+</body>
 </html>
 

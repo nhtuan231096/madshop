@@ -26,9 +26,15 @@
 		}
 
 		public function created(Request $req){
-			//upload file
-			// echo base_path('uploads'); die;
-			// dd($req->file_upload);
+			$this->validate($req,[
+            'name' => 'required',
+            'slug' => 'required|unique:product,slug',
+	        ],[
+	            'name.required' => 'Tên sản phẩm không đuợc trống',
+	            'slug.required' => 'Đường dẫn tĩnh không đuợc trống',
+	            'slug.unique' => 'Đường dẫn tĩnh đã được sử dụng'
+	        ]);
+
 			$img = '';
 			if ($req->hasFile('file_upload')) {
 				$file = $req->file_upload;
@@ -79,6 +85,14 @@
 				// 'Digits'=>':attribute must enter the number'
 			]);
 			Product::find($id)->update($req->all());
+
+			$img = $model->image;
+	        if ($req->hasFile('file_upload')) {
+	            $file = $req->file_upload;
+	            $file->move(base_path('uploads'),$file->getClientOriginalName());
+
+	            $img = $file->getClientOriginalName();
+	        }
 			return redirect()->route('list_product');
 		}
 	}

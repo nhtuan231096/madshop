@@ -17,7 +17,10 @@
 						</div>
 					@endif
 				</div>
-
+				<div class="form-group">
+					<label for="">Slug</label>
+					<input type="text" class="form-control" name="slug" id="slug">
+				</div>
 				<div class="form-group">
 					<label for="">Description</label>
 					<input type="text" class="form-control" name="description" placeholder="Input field">
@@ -37,10 +40,6 @@
 						@endforeach
 					</select>
 				</div>
-				<!-- <div class="form-group">
-					<label for="">Image</label>
-					<input type="file" name="file_upload" placeholder="Insert image">
-				</div> -->
 				<div class="form-group">
                         <label>Chose Image</label>
                         <div class="">
