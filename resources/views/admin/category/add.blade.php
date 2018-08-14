@@ -12,22 +12,22 @@
                         <input class="form-control" type="text" name="name">
                         <p class="help-block">Help text here.</p>
                     </div>
-                    <!-- <div class="form-group">
+                    <div class="form-group">
                         <label>Slug</label>
                         <input class="form-control" name="slug">
-                    </div> -->
+                    </div>
                     <!-- div class="form-group">
                         <label>Select Parent</label>
                         {!! Form::text('search_text', null, array('placeholder' => 'Search Text','class' => 'form-control','id'=>'search_text')) !!}
                     </div> -->
-                    <div class="form-group">
-                        <!-- <label>Parent</label>
+                    <!-- <div class="form-group">
+                        <label>Parent</label>
                         <select name="parent" class="form-control">
                             @foreach($cat as $c)
                             <option value="{{$c->id}}">{{$c->name}}</option>
                             @endforeach
-                        </select> -->
-                    </div>
+                        </select>
+                    </div> -->
                     <div class="form-group">
                         <label>Status</label>
                         <input class="form-control" name="status">
