@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.0.1
+-- version 4.8.0
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th8 11, 2018 lúc 10:42 AM
--- Phiên bản máy phục vụ: 10.1.32-MariaDB
--- Phiên bản PHP: 7.2.5
+-- Thời gian đã tạo: Th8 14, 2018 lúc 03:48 PM
+-- Phiên bản máy phục vụ: 10.1.31-MariaDB
+-- Phiên bản PHP: 5.6.35
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -77,7 +77,7 @@ CREATE TABLE `bill_detail` (
 CREATE TABLE `category` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `name` varchar(189) COLLATE utf8_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `parent` int(9) DEFAULT '0',
   `ordering` int(11) DEFAULT NULL,
@@ -91,9 +91,9 @@ CREATE TABLE `category` (
 --
 
 INSERT INTO `category` (`id`, `name`, `slug`, `image`, `parent`, `ordering`, `status`, `created_at`, `updated_at`) VALUES
-(37, 'Ao vai', '', '1', 1, 1, 1, '2018-07-23 06:28:01', '2018-08-02 07:27:52'),
-(38, 'Qaun jean', '', '', 0, 0, 1, '2018-07-23 06:28:01', '2018-08-02 07:28:05'),
-(39, 'TUi xach', '', '', 0, 0, 1, '2018-08-02 07:22:53', '2018-08-02 07:28:28');
+(42, 'Giày Nam', NULL, NULL, 0, NULL, 1, '2018-08-11 10:26:19', '2018-08-11 10:26:19'),
+(43, 'Giày Nữ', NULL, NULL, 0, NULL, 1, '2018-08-11 10:26:51', '2018-08-11 10:26:51'),
+(44, 'Giày Trẻ Em', NULL, NULL, 0, NULL, 1, '2018-08-11 10:27:07', '2018-08-11 10:27:07');
 
 -- --------------------------------------------------------
 
@@ -104,7 +104,7 @@ INSERT INTO `category` (`id`, `name`, `slug`, `image`, `parent`, `ordering`, `st
 CREATE TABLE `products` (
   `id` int(11) NOT NULL,
   `name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `category_id` int(11) NOT NULL,
   `description` varchar(200) COLLATE utf8_unicode_ci NOT NULL,
   `price` float DEFAULT NULL,
@@ -120,8 +120,12 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `name`, `slug`, `category_id`, `description`, `price`, `sale_price`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Áo sơ mi da sua', '', 37, 'ao so mi', 300000, 100000, NULL, 1, '2018-08-06 09:05:35', '2018-08-06 04:05:39'),
-(5, 'dsadsa', '', 38, 'dsada', 111, 2222, NULL, 1, '2018-08-06 03:50:43', '2018-08-06 03:50:43');
+(6, 'WOMEN\'S BOOTS SHOES MACA', NULL, 42, 'WOMEN\'S BOOTS SHOES MACA', 190000, 180000, NULL, 1, '2018-08-13 16:25:41', '2018-08-13 16:25:41'),
+(7, 'WOMEN\'S MINAM MEAGHAN', NULL, 43, 'WOMEN\'S MINAM MEAGHAN', 186501, 152412, NULL, 1, '2018-08-13 16:26:29', '2018-08-13 16:26:29'),
+(8, 'MEN\'S TAJA COMMISSIONER', NULL, 42, 'MEN\'S TAJA COMMISSIONER', 200000, 100000, NULL, 1, '2018-08-13 16:27:17', '2018-08-13 16:27:17'),
+(9, 'RUSS MEN\'S SNEAKERS', NULL, 42, 'RUSS MEN\'S SNEAKERS', 150000, 140000, NULL, 1, '2018-08-13 16:27:48', '2018-08-13 16:27:48'),
+(13, 'Giày Adidas', NULL, 42, 'MEN\'S TAJA COMMISSIONER', 190000, 180000, 'item-1.jpg', 1, '2018-08-13 17:39:11', '2018-08-13 17:39:11'),
+(14, 'WOMEN\'S BOOTS SHOES MACA', NULL, 43, 'WOMEN\'S BOOTS SHOES MACA', 190000, 180000, 'item-5.jpg', 1, '2018-08-14 12:21:01', '2018-08-14 12:21:01');
 
 -- --------------------------------------------------------
 
@@ -212,13 +216,13 @@ ALTER TABLE `bill_detail`
 -- AUTO_INCREMENT cho bảng `category`
 --
 ALTER TABLE `category`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
 
 --
 -- AUTO_INCREMENT cho bảng `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT cho bảng `users`
