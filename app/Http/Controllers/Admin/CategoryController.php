@@ -30,6 +30,13 @@ class CategoryController extends Controller
     }
     public function postadd(Request $req)
     {
+        $img = '';
+            if ($req->hasFile('file_upload')) {
+                $file = $req->file_upload;
+                $file->move(base_path('uploads/brand'), $file->getClientOriginalName());
+                $img =  $file->getClientOriginalName();
+            }
+            $req->merge(['image'=>$img]);
     	$req->offsetUnset('_token');
     	Category::create($req->all());
     	return redirect()->route('category')->with('success',"Created Successfully");

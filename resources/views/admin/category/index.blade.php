@@ -18,7 +18,7 @@
                                 <th>Name</th>
                                 <th>Parent</th>
                                 <th>Image</th>
-                                <th>Order</th>
+                                <th>Status</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -27,9 +27,18 @@
                             <tr>
                                 <td>{{$k+1}}</td>
                                 <td>{{$cat->name}}</td>
-                                <td>{{$cat->image}}</td>
+                                <td>
+                                    <img src="{{url('uploads/brand')}}/{{$cat->image}}" width="50">
+                                </td>
                                 <td>{{$cat->parent}}</td>
-                                <td>{{$cat->ordering}}</td>
+                                <!-- <td>{{$cat->ordering}}</td> -->
+                                <td>
+                                    @if($cat->status == 1)
+                                        <span class="label label-primary">In Public</span>
+                                    @else
+                                        <span class="label label-danger">Pending</span>
+                                    @endif
+                                </td>
                                 <td>
 									<a class="btn btn-xs btn-info" href=""><i class="fa fa-edit"></i></a>
 									<a class="btn btn-xs btn-danger" href="{{route('deleteCat',['id'=>$cat->id])}}" onclick="return confirm('Are You Sure')"><i class="fa fa-trash"></i></a>
