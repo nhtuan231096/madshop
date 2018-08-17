@@ -1,2 +1,3 @@
-Đây là file text
-Đây là file text
+<<<<<<< HEAD
+Nguyen Minh Tan update 23h18
+=======
