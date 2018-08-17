@@ -6,7 +6,12 @@
 		<h3 class="panel-title">List product</h3>
 	</div>
 	<div class="panel-body">
-		
+		@if(Session::has('successs'))
+			<div class="alert alert-success">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<strong>{{Session::get('successs')}}</strong>
+			</div>
+		@endif
 		<form action="" class="form-inline">
 			<div class="form-group">
 				<input type="text" name="search" class="form-control" placeholder="Search...">

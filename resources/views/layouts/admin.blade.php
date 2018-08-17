@@ -65,7 +65,7 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="table.html"><i class="fa fa-flash "></i>Data Tables </a>
+                        <a href="{{route('banner')}}"><i class="fa fa-flash "></i>Banner</a>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-bicycle "></i>Forms <span class="fa arrow"></span></a>

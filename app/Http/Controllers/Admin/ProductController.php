@@ -26,14 +26,14 @@
 		}
 
 		public function created(Request $req){
-			$this->validate($req,[
-            'name' => 'required',
-            'slug' => 'required|unique:product,slug',
-	        ],[
-	            'name.required' => 'Tên sản phẩm không đuợc trống',
-	            'slug.required' => 'Đường dẫn tĩnh không đuợc trống',
-	            'slug.unique' => 'Đường dẫn tĩnh đã được sử dụng'
-	        ]);
+			// $this->validate($req,[
+   //          'name' => 'required',
+   //          'slug' => 'required|unique:product,slug',
+	  //       ],[
+	  //           'name.required' => 'Tên sản phẩm không đuợc trống',
+	  //           'slug.required' => 'Đường dẫn tĩnh không đuợc trống',
+	  //           'slug.unique' => 'Đường dẫn tĩnh đã được sử dụng'
+	  //       ]);
 
 			$img = '';
 			if ($req->hasFile('file_upload')) {
@@ -43,8 +43,9 @@
 			}
 			$req->merge(['image'=>$img]);
 			$req->offsetUnset('_token');
+			// dd($req->all());
 			Product::create($req->all());
-			return redirect()->route('list_product');
+			return redirect()->route('list_product')->with('successs','Add product successfully');
 		}
 
 		public function delete($id){
