@@ -1,1 +1,17 @@
+<<<<<<< HEAD
 Nguyen Minh Tan update 23h18
+=======
+﻿Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+Đây là file text
+
+>>>>>>> 3e3161ada0e22dcf4708736e2d223f8db45c919a

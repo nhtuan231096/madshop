@@ -12,7 +12,7 @@
 		
 		public function product()
 		{
-			$product=Product::all();
+			$product=Product::search()->paginate(5);
 			return view('admin.product.index',[
 				'product'=>$product
 			]);
@@ -42,17 +42,6 @@
 				$img =  $file->getClientOriginalName();
 			}
 			$req->merge(['image'=>$img]);
-			// $this->validate($req,[
-			// 	'name'=>'required|min:6',
-			// 	'description'=>'required',
-			// 	'price'=>'required',
-			// 	'sale_price'=>'required',
-			// 	// 'category_id'=>'required'
-			// ],[
-			// 	'required'=>':attribute must not be blank',
-			// 	'min'=>':attribute at least 6 characters',
-				// 'Digits'=>':attribute must enter the number'
-			// ]);
 			$req->offsetUnset('_token');
 			Product::create($req->all());
 			return redirect()->route('list_product');
@@ -86,14 +75,14 @@
 			]);
 			Product::find($id)->update($req->all());
 
-			$img = $model->image;
-	        if ($req->hasFile('file_upload')) {
-	            $file = $req->file_upload;
-	            $file->move(base_path('uploads'),$file->getClientOriginalName());
+			// $img = $model->image;
+	  //       if ($req->hasFile('file_upload')) {
+	  //           $file = $req->file_upload;
+	  //           $file->move(base_path('uploads'),$file->getClientOriginalName());
 
-	            $img = $file->getClientOriginalName();
-	        }
-			return redirect()->route('list_product');
+	  //           $img = $file->getClientOriginalName();
+	  //       }
+			// return redirect()->route('list_product');
 		}
 	}
  ?>

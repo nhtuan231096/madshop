@@ -57,9 +57,6 @@
                                 <li class="active"><a href="index.html">Home</a></li>
                                 <li class="has-dropdown"><a href="men.html">Men</a></li>
                                 <li><a href="women.html">Women</a></li>
-                                <!-- @foreach($cats as $cat)
-                                    <li><a href="{{route('shop',['id'=>$cat-id])}}">{{$cat->name}}</a></li>
-                                $endforeach -->
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                                 <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>

@@ -15,6 +15,14 @@
 		{
 			return $this->hasOne('App\Models\Category','id','category_id');
 		}
+		public function scopeSearch($query)
+		{
+			if (empty(request()->search)) {
+				return $query;
+			}else{
+				return $query->where('name','like','%'.request()->search.'%');
+			}
+		}
 		
 	}
  ?>

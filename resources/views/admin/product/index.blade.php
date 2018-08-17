@@ -6,6 +6,14 @@
 		<h3 class="panel-title">List product</h3>
 	</div>
 	<div class="panel-body">
+		
+		<form action="" class="form-inline">
+			<div class="form-group">
+				<input type="text" name="search" class="form-control" placeholder="Search...">
+			</div>
+			<button type="submit" class="btn btn-primary">Search</button>
+			<a href="{{route('add_product')}}" class="btn btn-info"><i class="fa fa-plus"></i>Add Product</a>
+		</form>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -48,6 +56,9 @@
 				@endforeach()
 			</tbody>
 		</table>
+	</div>
+		<div class="panel-footer">
+		{{$product->links()}}
 	</div>
 </div>
 @stop()
