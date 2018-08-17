@@ -1,6 +1,6 @@
 @extends('layouts.master_layouts_product')
 @section('main')
-
+@section('title', $product->name)
 @section('product')
 @section('pages',$product->name)
 <!-- <div class="row row-pb-md">
@@ -38,7 +38,7 @@
                 @else
                 <p class="price">{{number_format($product->price)}}đ</p>
                 @endif
-                <a class="btn btn-md btn-primary" href="{{route('add_cart',['id'=>$product->id])}}">Add cart</a>
+                <a class="btn btn-md btn-primary" href="{{route('add-cart',['id'=>$product->id])}}">Add cart</a>
             </div>
     </div>
 </div>>

@@ -1,7 +1,7 @@
 @extends('layouts.master_layouts_product')
 @section('main')
 
-@section('cate_title',$category->name)
+@section('title',$category->name)
 @section('product')
 @section('pages',$category->name)
 <div class="row row-pb-md">

@@ -51,14 +51,18 @@ class HomeController extends Controller
     public function add_cart($id,Cart $cart){
         $model=Product::find($id);
         if ($model) {
-           dd($cart->add);
+            $cart->add($model);
+            return redirect()->route('view-cat')->with('success','Thêm thành công');
+            // return view('home.errors');
         }
         else{
             return view('home.errors');
         }
     }
     public function view_cart(){
-        return view('home.view_cart');
+        return view('home.view-cart',[
+            'cart' => new Cart()
+        ]);
     }
 }
 
