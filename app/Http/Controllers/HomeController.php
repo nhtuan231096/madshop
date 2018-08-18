@@ -52,14 +52,14 @@ class HomeController extends Controller
         $model=Product::find($id);
         if ($model) {
             $cart->add($model);
-            return redirect()->route('view-cat')->with('success','Thêm thành công');
+            return redirect()->route('gio-hang')->with('success','Thêm thành công');
             // return view('home.errors');
         }
         else{
             return view('home.errors');
         }
     }
-    public function view_cart(){
+    public function gio_hang(){
         return view('home.view-cart',[
             'cart' => new Cart()
         ]);
