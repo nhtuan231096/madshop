@@ -23,12 +23,19 @@
 				</div>
 				<div class="form-group">
 					<label for="">Description</label>
-					<input type="text" class="form-control" name="description" placeholder="Input field">
+					<!-- <input type="text" class="form-control" name="description" placeholder="Input field">
 					@if($errors->has('description'))
 						<div style="color:red; font-style:italic;" class="help-block">
 							{{$errors->first('description')}}
 						</div>
-					@endif
+					@endif -->
+					<textarea type="text" class="form-control" name="description" placeholder="Input field" id="textarea">
+						@if($errors->has('description'))
+							<div style="color:red; font-style:italic;" class="help-block">
+								{{$errors->first('description')}}
+							</div>
+						@endif
+					</textarea>
 				</div>
 
 				<div class="form-group">

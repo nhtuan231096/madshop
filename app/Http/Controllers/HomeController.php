@@ -15,9 +15,13 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-    	View::share([
-    		'cats' => Category::orderBy('name','ASC')->get()
-    	]);
+        $this->middleware(function($request,$next){
+            View::share([
+            'cats' => Category::orderBy('name','ASC')->get(),
+            'cart' => new Cart()
+          ]);
+        return $next($request);
+        });
     }
     public function index()
     {
@@ -63,6 +67,19 @@ class HomeController extends Controller
         return view('home.view-cart',[
             'cart' => new Cart()
         ]);
+    }
+    public function delete_cart($id,Cart $cart){
+       $cart->delete($id); 
+       return redirect()->back()->with('success','Xóa thành công');
+    }
+    public function update_cart($id,Cart $cart){
+        $qty=request()->qty > 0 ? request()->qty : 1;
+        $cart->update($id,$qty);
+        return redirect()->back();
+    }
+    public function clear(Cart $cart){
+        $cart->clear();
+        return redirect()->back()->with('success','xóa giỏ hàng thành công');
     }
 }
 

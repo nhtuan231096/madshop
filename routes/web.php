@@ -32,8 +32,8 @@ Route::get('//{slug}.html','HomeController@view')->name('view');
 Route::get('cart/add-cart/{id}','HomeController@add_cart')->name('add-cart');
 Route::get('cart/xem-gio-hang','HomeController@gio_hang')->name('gio-hang');
 Route::get('cart/delete/{id}','HomeController@delete_cart')->name('delete-cart');
-Route::get('cart/update/{id}/{qty}','HomeController@update_cart')->name('update-cart');
-Route::get('cart/clear','HomeController@clear')->name('clear_cart');
+Route::get('cart/update/{id}','HomeController@update_cart')->name('update-cart');
+Route::get('cart/clear-cart','HomeController@clear')->name('clear_cart');
 
 // Route::get('//{}','HomeController@product')->name('view');
 

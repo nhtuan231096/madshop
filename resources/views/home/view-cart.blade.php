@@ -22,6 +22,12 @@
 				</div>
 				<div class="row row-pb-lg">
 					<div class="col-md-12">
+						@if(Session::has('success'))
+							<div class="alert alert-success">
+								<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+								<strong>{{Session::get('success')}}</strong>
+							</div>
+						@endif
 						<div class="product-name d-flex">
 							<div class="one-forth text-left px-4">
 								<span>Product Details</span>
@@ -39,94 +45,48 @@
 								<span>Remove</span>
 							</div>
 						</div>
+						@foreach($cart->items as $item)
 						<div class="product-cart d-flex">
 							<div class="one-forth">
-								<div class="product-img" style="background-image: url(images/item-6.jpg);">
+								<!-- <div class="product-img" style="background-image: url(images/item-6.jpg);">
+								</div> -->
+								<div class="product-img">
+									<img src="{{url('uploads')}}/{{$item['image']}}" alt="{{$item['name']}}" width="90">
 								</div>
 								<div class="display-tc">
-									<h3>Product Name</h3>
+									<h3>{{$item['name']}}</h3>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price">$68.00</span>
+									<span class="price">{{number_format($item['price'])}}đ</span>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$120.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<a href="#" class="closed"></a>
-								</div>
-							</div>
-						</div>
-						<div class="product-cart d-flex">
-							<div class="one-forth">
-								<div class="product-img" style="background-image: url(images/item-7.jpg);">
-								</div>
-								<div class="display-tc">
-									<h3>Product Name</h3>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$68.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<form action="#">
-										<input type="text" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
+									<form method="GET" action="{{route('update-cart',['id'=>$item['id']])}}">
+										<input type="text" id="quantity" name="qty" class="form-control input-number text-center" value="{{$item['qty']}}" min="1" max="100">
+										<input type="submit" class="btn btn-xs btn-default" value="Update">
 									</form>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price">$120.00</span>
+									<span class="price">{{number_format($item['price']*$item['qty'])}}đ</span>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<a href="#" class="closed"></a>
+									<a href="{{route('delete-cart',['id'=>$item['id']])}}" class="closed"></a>
 								</div>
 							</div>
 						</div>
-						<div class="product-cart d-flex">
-							<div class="one-forth">
-								<div class="product-img" style="background-image: url(images/item-8.jpg);">
-								</div>
-								<div class="display-tc">
-									<h3>Product Name</h3>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$68.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$120.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<a href="#" class="closed"></a>
-								</div>
-							</div>
+						@endforeach
+						<div class="text-center"><h2>Total: {{number_format($cart->total_amount)}}</h2></div>
+						<div class="text-center">
+							<a href="{{route('home')}}" class="btn btn-md btn-primary">Continue</a>
+							<a href="{{route('clear_cart')}}" class="btn btn-md btn-danger">Clear all</a>
+							<a href="" class="btn btn-md btn-success">Order</a>
 						</div>
 					</div>
 				</div>

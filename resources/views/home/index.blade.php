@@ -80,7 +80,7 @@
                         @else
                          <span class="price">{{number_format($pr->price)}}đ</span>
                         @endif
-                        <a class="btn btn-md btn-primary" href="">Add Cart</a>
+                        <a class="btn btn-md btn-primary" href="{{route('add-cart',['id'=>$pr->id])}}">Add Cart</a>
                     </div>
                 </div>
             </div>

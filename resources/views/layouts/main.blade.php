@@ -51,7 +51,7 @@
                                 @endforeach
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
-                                <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+                                <li class="cart"><a href="{{route('gio-hang')}}"><i class="icon-shopping-cart"></i> Cart [ {{$cart->total_qty}} ]</a></li>
                             </ul>
                         </div>
                     </div>
