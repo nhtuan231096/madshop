@@ -24,9 +24,8 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
-        // Gate:define('edit-profile', function($user){
-        //     return true;
+        // $gate->define('permission', function($user, $permissions){
+        //     return $user->hasDefinePrivilege($permissions);
         // });
 
         //

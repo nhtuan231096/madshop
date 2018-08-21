@@ -4,7 +4,10 @@ use View;
 use App\Models\Category;
 use App\Models\Product;
 use App\Models\Banner;
+use Illuminate\Http\Request;
 use App\Carts\Cart;
+use App\Models\Bills;
+use App\Models\Bill_detail;
 /**
  * summary
  */
@@ -51,6 +54,19 @@ class HomeController extends Controller
             return view('home.errors');
         }
     }
+    public function register(){
+        return view('home.register');
+    }
+    public function postregister(Request $req){
+
+        dd($req->all());
+    }
+    public function homelogin(){
+        return view('home.login');
+    }
+    public function post_homelogin(){
+
+    }
 
     public function add_cart($id,Cart $cart){
         $model=Product::find($id);
@@ -80,6 +96,44 @@ class HomeController extends Controller
     public function clear(Cart $cart){
         $cart->clear();
         return redirect()->back()->with('success','xóa giỏ hàng thành công');
+    }
+
+    public function order(){
+        return view('home.order');
+    }
+    public function postorder(Request $req,Cart $cart){
+        // dd($req->all());
+        $datas=[];
+        // dd($cart->items);
+        if ($order=Bills::create($req->all())) {
+            foreach($cart->items as $item){
+            $datas=[
+                'pro_id'=>$item['id'],
+                'quantity'=>$item['qty'],
+                'price'=>$item['price'],
+                'bill_id'=>$order->id
+            ];
+            }
+            if ($datas) {
+                if(Bill_detail::insert($datas)){
+                    $cart->clear();
+                    return redirect()->route('order_success')->with('success','successfully');
+                }
+                else{
+                    $order->delete();
+                    return redirect()->route('order_error')->with('error','error');
+                }
+            }
+        }
+        else{
+echo "string";
+        }
+    }
+    public function order_success(){
+        return view('home.order_success');
+    }
+    public function order_error(){
+        return view('home.order_error');
     }
 }
 

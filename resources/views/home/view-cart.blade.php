@@ -48,10 +48,7 @@
 						@foreach($cart->items as $item)
 						<div class="product-cart d-flex">
 							<div class="one-forth">
-								<!-- <div class="product-img" style="background-image: url(images/item-6.jpg);">
-								</div> -->
-								<div class="product-img">
-									<img src="{{url('uploads')}}/{{$item['image']}}" alt="{{$item['name']}}" width="90">
+								<div class="product-img" style="background-image: url(images/item-6.jpg);">
 								</div>
 								<div class="display-tc">
 									<h3>{{$item['name']}}</h3>
@@ -86,7 +83,7 @@
 						<div class="text-center">
 							<a href="{{route('home')}}" class="btn btn-md btn-primary">Continue</a>
 							<a href="{{route('clear_cart')}}" class="btn btn-md btn-danger">Clear all</a>
-							<a href="" class="btn btn-md btn-success">Order</a>
+							<a href="{{route('order')}}" class="btn btn-md btn-success">Order</a>
 						</div>
 					</div>
 				</div>

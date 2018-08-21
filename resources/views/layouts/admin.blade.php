@@ -89,10 +89,16 @@
                         <a class="active-menu" href="{{route('admin')}}"><i class="fa fa-dashboard "></i>Dashboard</a>
                     </li>
                     <li>
+                        <a href="{{route('users')}}"><i class="fa fa-list-alt  "></i>User Admin</a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="{{route('users')}}">List product</a></li>
+
+                        </ul>
+                    </li>
+                    <li>
                         <a href="{{route('category')}}"><i class="fa fa-list-alt  "></i>Category</a>
                         <ul class="nav nav-second-level">
                             <li><a href="{{route('category')}}">List category</a></li>
-                            {{-- <li><a href="{{route('add_category')}}">Add category</a></li> --}}
                         </ul>
                     </li>
                      <li>

@@ -12,16 +12,19 @@
 */
 Route::group(['prefix'=>'admin','namespace'=>'Admin','middleware'=>'auth'],function(){
 	Route::get('/','AdminController@index')->name('admin');
-	require 'category.php';
-	require 'product.php';
-	require 'banner.php';
+	require 'admin/category.php';
+	require 'admin/product.php';
+	require 'admin/banner.php';
+	require 'admin/users.php';
 });
 Route::get('admin/login.html','Admin\AuthController@login')->name('login');
 Route::post('admin/login.html','Admin\AuthController@post_login')->name('login');
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/login.html','AuthController@login')->name('home.login');
-Route::post('/login.html','AuthController@post_login')->name('home.login');
+// Route::get('/home/register.html','HomeController@register')->name('homeregister');
+// Route::post('/home/register.html','HomeController@postregister')->name('homeregister');
+// Route::get('/homeLogin.html','HomeController@homelogin')->name('homeLogin');
+// Route::post('/homeLogin.html','HomeController@post_homelogin')->name('homeLogin');
 
 
 Route::get('/register.html','AuthController@register')->name('register');
@@ -35,5 +38,6 @@ Route::get('cart/delete/{id}','HomeController@delete_cart')->name('delete-cart')
 Route::get('cart/update/{id}','HomeController@update_cart')->name('update-cart');
 Route::get('cart/clear-cart','HomeController@clear')->name('clear_cart');
 
+require 'home/cart.php';
 // Route::get('//{}','HomeController@product')->name('view');
 
