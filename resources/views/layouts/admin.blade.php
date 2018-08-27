@@ -97,9 +97,6 @@
                     </li>
                     <li>
                         <a href="{{route('category')}}"><i class="fa fa-list-alt  "></i>Category</a>
-                        <ul class="nav nav-second-level">
-                            <li><a href="{{route('category')}}">List category</a></li>
-                        </ul>
                     </li>
                      <li>
                         <a href="#"><i class="fa fa-yelp "></i>Product <span class="fa arrow"></span></a>

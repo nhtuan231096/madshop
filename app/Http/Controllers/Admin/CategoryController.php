@@ -41,5 +41,25 @@ class CategoryController extends Controller
     	Category::create($req->all());
     	return redirect()->route('category')->with('success',"Created Successfully");
     }
+
+    public function edit($id){
+        $cate=Category::find($id);
+        return view('admin.category.edit',[
+            'cate'=>$cate
+        ]);
+    }
+    public function postedit($id,Request $req){
+        $this->validate($req,[
+            'name'=>'required|unique:category,name,'.$id,
+            'slug'=>'required|unique:category,slug,'.$id
+        ],[
+            'name.required'=>'Tên không được để trống',
+            'name.unique'=>'Tên đã tồn tại',
+            'slug.unique'=>'Đường dẫn đã tồn tại',
+            'slug.required'=>'Đường dẫn không được để trống'
+        ]);
+        Category::find($id)->update($req->all());
+        return redirect()->route('category')->with('success','Update Successfully');
+    }
 }
  ?>
